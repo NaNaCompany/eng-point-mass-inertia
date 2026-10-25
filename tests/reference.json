@@ -1,0 +1,99 @@
+{
+  "id": "E128",
+  "value": 0.62,
+  "value_high_precision": "0.62",
+  "method": "Independent Python Decimal arithmetic at 80 significant digits; Taylor series for sine and arcsine, Decimal exp/sqrt, separate physical balance or geometry. No JavaScript imports.",
+  "cases": [
+    {
+      "name": "one point away from axis",
+      "values": {
+        "points": [
+          {
+            "m": 3,
+            "r": 2
+          }
+        ]
+      },
+      "expected": 12.0
+    },
+    {
+      "name": "all points on axis exact zero",
+      "values": {
+        "points": [
+          {
+            "m": 2,
+            "r": 0
+          },
+          {
+            "m": 3,
+            "r": 0
+          }
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "name": "five independently entered points",
+      "values": {
+        "points": [
+          {
+            "m": 1,
+            "r": 1
+          },
+          {
+            "m": 2,
+            "r": 2
+          },
+          {
+            "m": 3,
+            "r": 3
+          },
+          {
+            "m": 4,
+            "r": 4
+          },
+          {
+            "m": 5,
+            "r": 5
+          }
+        ]
+      },
+      "expected": 225.0
+    },
+    {
+      "name": "extreme mass and radius balanced product",
+      "values": {
+        "points": [
+          {
+            "m": 1e-300,
+            "r": 1e+150
+          },
+          {
+            "m": 1e+300,
+            "r": 1e-150
+          }
+        ]
+      },
+      "expected": 2.0
+    },
+    {
+      "name": "nonzero inertia underflow rejected",
+      "values": {
+        "points": [
+          {
+            "m": 1e-300,
+            "r": 1e-100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "name": "empty point list rejected",
+      "values": {
+        "points": []
+      },
+      "throws": true
+    }
+  ]
+}
